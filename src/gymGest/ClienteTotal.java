@@ -7,9 +7,13 @@ import interfaces.palaPadel;
  */
 public class ClienteTotal extends Cliente{
 
-    ClienteTotal(String dni, String nombre, String direccion, String telefono, String gama, boolean material){
+	int cuota;
+	
+    public ClienteTotal(String dni, String nombre, String direccion, String telefono, String gama, boolean material){
         super(dni, nombre, direccion, telefono, gama, material);
+        this.cuota = cuotaMensual();
     }
+    
 
     @Override
     int fijo() {
