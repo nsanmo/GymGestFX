@@ -14,14 +14,17 @@ public class MainUIController {
 // private static final String VEHICLE_PICKUP="../view/reservedVehiclePickupView.fxml";
 // private static final String LIST_VEHICLE_BRANCH_OFFICE="../view/listVehicles.fxml";
 // private static final String CREATE_RESERVATION="../view/createReservation.fxml";
-// private static final String LIST_BRANCH_OFFICE="../view/listBOReservations.fxml";
+	private static final String LISTAR_CLIENTES="../view/ListarClientes.fxml";
 // private static final String CREATE_CUSTOMER="../view/createCustomerView.fxml";
 	private static final String CREAR_CLIENTE="../view/crearCliente.fxml";
+	private static final String CREAR_MONITOR="../view/crearMonitor.fxml";
 	
  private Stage primaryStage;
-// private ListBranchOfficesUIController listBranchOfficesController;
+ 
+ private ListarClientesUIControlador listarClientesUIControlador;
 // private CreateCustomerUIController createCustomerController;
- private CrearClienteUIControlador crearClienteControlador; 
+ private CrearClienteUIControlador crearClienteControlador;
+ private CrearMonitorUIControlador crearMonitorControlador;
 // private CreateReservationUIController createReservationController;
 // private ListVehiclesUIController listVehiclesController;
 // private PickUpReservationUIController pickUpReservation;
@@ -30,8 +33,9 @@ public class MainUIController {
 // @FXML private MenuItem menuListVehicles;
  @FXML private MenuItem menuClose;
 // @FXML private MenuItem menuCreateReservation;
-// @FXML private MenuItem menuListBranchOffices;
+ @FXML private MenuItem menuListarClientes;
  @FXML private MenuItem menuCrearCliente;
+ @FXML private MenuItem menuCrearMonitor;
 
  @FXML
  void exit(ActionEvent event) {
@@ -53,18 +57,26 @@ public class MainUIController {
 // }
 // 
  
-// @FXML
-// void listBranchOffices(ActionEvent event) throws LogicException {
-//	 
-//	 listBranchOfficesController=DialogUIController.initDialog(LIST_BRANCH_OFFICE,ListBranchOfficesUIController.class, primaryStage);
-//	 listBranchOfficesController.showAndWait();
-// }
+ @FXML
+ void listarClientes(ActionEvent event) throws LogicException {
+	 
+	 listarClientesUIControlador=DialogUIController.initDialog(LISTAR_CLIENTES,ListarClientesUIControlador.class, primaryStage);
+	 listarClientesUIControlador.showAndWait();
+ }
 
  @FXML
  void crearCliente(ActionEvent event) throws LogicException {
 
 	 crearClienteControlador=DialogUIController.initDialog(CREAR_CLIENTE,CrearClienteUIControlador.class, primaryStage);
 	 crearClienteControlador.showAndWait();
+
+ }
+ 
+ @FXML
+ void crearMonitor(ActionEvent event) throws LogicException {
+
+	 crearMonitorControlador=DialogUIController.initDialog(CREAR_MONITOR, CrearMonitorUIControlador.class, primaryStage);
+	 crearMonitorControlador.showAndWait();
 
  }
 

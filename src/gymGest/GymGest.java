@@ -19,7 +19,7 @@ import persistencia_dto.MonitorDTO;
 
 public class GymGest {
 	private List<Cliente> clientes;
-	private List<Monitor> monitores;
+	private static List<Monitor> monitores;
 	private List<Clase> clases;
 	private List<Asistencia> asistencia;
 	private static List<Reserva> reservas;
@@ -30,7 +30,7 @@ public class GymGest {
 	private static GymGest INSTANCE = new GymGest();
 	
 	//Para systemload...
-	int a;
+	
 
 	public GymGest(){
 		this.clientes = new ArrayList<Cliente>();
@@ -41,6 +41,10 @@ public class GymGest {
 		this.gim = new Gimnasio();
 		dal = DAL.getDal();
 		systemLoad();
+	}
+	
+	public static GymGest getGymGest(){
+		return INSTANCE;
 	}
 
 	public DAL getDal() {
@@ -75,16 +79,26 @@ public class GymGest {
 		}
 	}
 	
+    //	mejorar muuuuuucho esto
+    //	mejorar muuuuuucho esto
+    //	mejorar muuuuuucho esto
+    //	mejorar muuuuuucho esto
+    //
 	// Refactoring: crear constructor en ClienteDTO donde se le pase Cliente
+    
 	public void crearCliente(String dni, String nombre, String direccion, String telefono, String gama,
-							 boolean material, boolean mañanas, int miembros){
-		Cliente cli;
-
-		if(miembros == 1 && mañanas){
-			cli = new ClienteMañanas(dni, nombre, direccion, telefono, gama, material);
-		} else if (miembros == 1 && !mañanas){
-			cli = new ClienteTotal(dni, nombre, direccion, telefono, gama, material);
-		} else {cli = new ClienteFamilia(dni, nombre, direccion, telefono, gama, material, miembros);}
+							 boolean material){
+		
+		Cliente cli = new ClienteTotal(dni, nombre, direccion, telefono, gama, material);
+		
+//		//int miembros = 1;
+//		int mañanas = true;
+//				
+//		if(miembros == 1 && mañanas){
+//			cli = new ClienteMañanas(dni, nombre, direccion, telefono, gama, material);
+//		} else if (miembros == 1 && !mañanas){
+//			cli = new ClienteTotal(dni, nombre, direccion, telefono, gama, material);
+//		} else {cli = new ClienteFamilia(dni, nombre, direccion, telefono, gama, material);}
 
 		ClienteDTO clienteDTO = new ClienteDTO(dni, nombre, direccion, telefono, gama, material);
 		dal.crearCliente(clienteDTO);
@@ -92,7 +106,7 @@ public class GymGest {
 		
 	}	
 
-	private void mostrarClientes(){
+	public void mostrarClientes(){
 		for(Cliente cli: clientes){
 			System.out.println("Nombre: "+cli.nombre+" Dirección"+cli.direccion+"  pala:"+cli.getPa() +"\n");
 		}
@@ -160,10 +174,10 @@ public class GymGest {
 	public void setEmpleados(List<Empleado> empleados) {
 		this.monitores = monitores;
 	}
-	public Empleado getEmpleado(String dni) {
-		for (Empleado empleado : this.monitores) {
-			if (empleado.getDni().equals(dni)) {
-				return empleado;
+	public Monitor getMonitor(int id) {
+		for (Monitor monitor : monitores) {
+			if (monitor.getId()==id) {
+				return monitor;
 			}
 		}
 		return null;
@@ -294,12 +308,6 @@ public class GymGest {
 		}
 		this.mostrarClientes();
 	}
-	
-	
-	
-	
-
-
 
 
 	public void apuntarclase(Clase cla, Cliente cli){

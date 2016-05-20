@@ -25,15 +25,15 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER_RIGHT" text="DNI" GridPane.halignment="RIGHT">
+            <Label alignment="CENTER_RIGHT" text="id" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></Label>
-            <Label text="Nombre" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Label text="DNI" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></Label>
-            <Label text="Direccion" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <Label text="Nombre" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></Label>
@@ -41,75 +41,47 @@
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin></Label>
-            <Label text="Driver license" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin></Label>
-            <Label text="Material" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin></Label>
-            <Label text="Month" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin></Label>
-            <Label text="CVC" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin></Label>
-            <TextField fx:id="dni" promptText="11111111A" GridPane.columnIndex="1">
+            <TextField fx:id="id" prefHeight="27.0" prefWidth="187.0" promptText="(1-100)" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="200.0" />
                </GridPane.margin></TextField>
-            <TextField fx:id="nombre" promptText="Name and Surnames" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="direccion" promptText="IE Av los naranjos" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="dni" prefHeight="27.0" prefWidth="208.0" promptText="11111111A" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="200.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="nombre" promptText="Nombre y Apellido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="telefono" promptText="xxxxx" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="225.0" />
                </GridPane.margin></TextField>
-            <TextField fx:id="material" promptText="max 16 digits" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="monthCC" promptText="1-12" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Label text="Mon. Natacion" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets right="280.0" />
-               </GridPane.margin></TextField>
-            <TextField fx:id="cvcCC" promptText="xxx" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label layoutX="14.0" layoutY="139.0" text="Mon. Raqueta" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets right="280.0" />
-               </GridPane.margin></TextField>
-            <TextField fx:id="yearCC" promptText="2015" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label layoutX="10.0" layoutY="169.0" text="Mon. Sala" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="150.0" right="125.0" />
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="monitorNatacion" layoutX="113.0" layoutY="104.0" promptText="true - false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="200.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="typeCC" promptText="VISA" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <TextField fx:id="monitorRaqueta" layoutX="113.0" layoutY="134.0" promptText="true - false" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="150.0" right="125.0" />
+                  <Insets right="200.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="Material" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextField fx:id="monitorSala" layoutX="113.0" layoutY="134.0" promptText="true - false" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="100.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Type" GridPane.columnIndex="1" GridPane.rowIndex="8">
-               <GridPane.margin>
-                  <Insets left="100.0" />
-               </GridPane.margin>
-            </Label>
-            <DatePicker fx:id="dateDriverLicense" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Credit Card Information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <GridPane.margin>
-                  <Insets left="100.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Gama" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="150.0" />
-               </GridPane.margin>
-            </Label>
-            <TextField fx:id="gama" promptText="IE VAlencia" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="175.0" right="50.0" />
+                  <Insets right="200.0" />
                </GridPane.margin>
             </TextField>
          </children>

@@ -17,9 +17,14 @@
           <Menu mnemonicParsing="false" text="Customer">
             <items>
                   <MenuItem fx:id="menuCrearCliente" mnemonicParsing="false" onAction="#crearCliente" text="CrearCliente" />
+                  <MenuItem fx:id="menuListarClientes" mnemonicParsing="false" onAction="#listarClientes" text="ListarClientes" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Admin" />
+          
+          <Menu mnemonicParsing="false" text="Admin">
+               <items>
+                  <MenuItem fx:id="menuCrearMonitor" mnemonicParsing="false" onAction="#crearMonitor" text="Crear Monitor" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>

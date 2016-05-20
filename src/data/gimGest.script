@@ -60,6 +60,7 @@ SET SCHEMA PUBLIC
 INSERT INTO PALAPADEL VALUES(1)
 INSERT INTO PALAPADEL VALUES(2)
 INSERT INTO PALAPADEL VALUES(100)
+INSERT INTO CLIENTE VALUES('0000      ','juju                ','sasa                ','82838               ',FALSE,1)
 INSERT INTO CLIENTE VALUES('12345     ','NACHO               ','GCIVIL              ','96362               ',TRUE,1)
 INSERT INTO CLIENTE VALUES('2020      ','a las 18.15         ','GCIVL               ','765                 ',TRUE,1)
 INSERT INTO CLIENTE VALUES('2025      ','a las 18.15         ','GCIVL               ','765                 ',TRUE,1)
