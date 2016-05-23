@@ -1,4 +1,4 @@
-	package presentacion.control;
+package presentacion.control;
 	
 	import java.awt.Label;
 	import java.net.URL;
@@ -7,7 +7,7 @@
 	import java.util.ResourceBundle;
 	
 	import gymGest.Cliente;
-	import gymGest._ClienteTotal;
+	import gymGest.ClienteTotal;
 	import gymGest.GymGest;
 	import javafx.fxml.FXML;
 	import javafx.scene.control.Alert;

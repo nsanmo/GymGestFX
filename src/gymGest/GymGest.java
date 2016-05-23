@@ -74,7 +74,7 @@ public class GymGest {
 		List<ClienteDTO> listaClienteDTO = dal.getClientes();
 		Cliente cliente;
 		for(ClienteDTO cli: listaClienteDTO){
-			cliente = new _ClienteTotal(cli.getDni(), cli.getNombre(), cli.getDireccion(), cli.getTelefono(), cli.getGama(), cli.isMaterial());
+			cliente = new ClienteTotal(cli.getDni(), cli.getNombre(), cli.getDireccion(), cli.getTelefono(), cli.getGama(), cli.isMaterial());
 			addCliente(cliente);
 		}
 	}
@@ -89,7 +89,7 @@ public class GymGest {
 	public void crearCliente(String dni, String nombre, String direccion, String telefono, String gama,
 							 boolean material){
 		
-		Cliente cli = new _ClienteTotal(dni, nombre, direccion, telefono, gama, material);
+		Cliente cli = new ClienteTotal(dni, nombre, direccion, telefono, gama, material);
 		
 //		//int miembros = 1;
 //		int mañanas = true;

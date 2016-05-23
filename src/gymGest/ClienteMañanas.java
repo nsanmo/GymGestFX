@@ -1,24 +1,27 @@
 package gymGest;
-
-public class ClienteMañanas extends Cliente{
-	
-	String dni, nombre, direccion, telefono;
-	
-	public ClienteMañanas(String dni, String nombre, String direccion, String telefono){
-		this.dni = dni;
-		this.nombre = nombre;
-		this.direccion = direccion;
-		this.telefono = telefono;
-		this.miembros = 1;
-	}
-	
-	public int fijo() {
-      return 20;
-	}
-
-	@Override
-	public int alquilerMaterial() {
-      return 25;
-	}
-
-}
+////package gymGest;
+//
+//import interfaces.palaPadel;
+//
+///**
+// * Created by ignaciosantonjamolina on 16/5/16.
+// */
+//public class _ClienteMañanas extends Cliente{
+//	
+//	int cuota;
+//
+//   _ClienteMañanas(String dni, String nombre, String direccion, String telefono, String gama, boolean material){
+//       super(dni, nombre, direccion, telefono, gama, material);
+//       this.cuota = cuotaMensual();
+//   }
+//
+//    @Override
+//    int fijo() {
+//       return 20;
+//    }
+//
+//    @Override
+//    int alquilerMaterial() {
+//        return 30;
+//    }
+//}
