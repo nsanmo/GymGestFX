@@ -5,8 +5,8 @@ import interfaces.Recibo;
 /**
  * Created by javia_000 on 21/04/2016.
  */
-public class DecoradorPadel extends ComponenteDecorador {
-    public DecoradorPadel(Recibo recibo){
+public class DecoradorPADEL extends ComponenteDecorador {
+    public DecoradorPADEL(Recibo recibo){
         super(recibo);
     }
 
