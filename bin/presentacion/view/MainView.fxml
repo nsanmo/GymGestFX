@@ -24,6 +24,7 @@
           <Menu mnemonicParsing="false" text="Admin">
                <items>
                   <MenuItem fx:id="menuCrearMonitor" mnemonicParsing="false" onAction="#crearMonitor" text="Crear Monitor" />
+                  <MenuItem fx:id="menuCrearClase" mnemonicParsing="false" onAction="#crearClase" text="Crear Clase" />
                </items></Menu>
         </menus>
       </MenuBar>

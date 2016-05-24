@@ -18,6 +18,7 @@ public class MainUIController {
 // private static final String CREATE_CUSTOMER="../view/createCustomerView.fxml";
 	private static final String CREAR_CLIENTE="../view/crearCliente.fxml";
 	private static final String CREAR_MONITOR="../view/crearMonitor.fxml";
+	private static final String CREAR_CLASE="../view/crearClase.fxml";
 	
  private Stage primaryStage;
  
@@ -25,6 +26,7 @@ public class MainUIController {
 // private CreateCustomerUIController createCustomerController;
  private CrearClienteUIControlador crearClienteControlador;
  private CrearMonitorUIControlador crearMonitorControlador;
+ private CrearClaseUIControlador crearClaseControlador;
 // private CreateReservationUIController createReservationController;
 // private ListVehiclesUIController listVehiclesController;
 // private PickUpReservationUIController pickUpReservation;
@@ -36,6 +38,7 @@ public class MainUIController {
  @FXML private MenuItem menuListarClientes;
  @FXML private MenuItem menuCrearCliente;
  @FXML private MenuItem menuCrearMonitor;
+ @FXML private MenuItem menuCrearClase;
 
  @FXML
  void exit(ActionEvent event) {
@@ -77,6 +80,14 @@ public class MainUIController {
 
 	 crearMonitorControlador=DialogUIController.initDialog(CREAR_MONITOR, CrearMonitorUIControlador.class, primaryStage);
 	 crearMonitorControlador.showAndWait();
+
+ }
+ 
+ @FXML
+ void crearClase(ActionEvent event) throws LogicException {
+
+	 crearClaseControlador=DialogUIController.initDialog(CREAR_CLASE, CrearClaseUIControlador.class, primaryStage);
+	 crearClaseControlador.showAndWait();
 
  }
 

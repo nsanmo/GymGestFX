@@ -12,8 +12,6 @@ import gymGest.Monitor;
 
 public class ClaseDTO{
 	
-	//public enum tipoClase {PADEL, TENIS, NATACIÓN}
-
 	private int id;
 	private tipoClase tC;
 	private DayOfWeek dw1, dw2;
@@ -33,19 +31,6 @@ public class ClaseDTO{
 		this.monitor = monitor;
 
 	}
-	
-	public ClaseDTO(int id, Clase clase){
-		
-		this.id = id;
-		this.tC = clase.gettC();
-		this.dw1 = clase.getDw1();
-		this.dw2 = clase.getDw2();
-		this.hora = clase.getHora();
-		this.duracion = clase.getDuracion();
-		this.monitor = clase.getMonitor().getSueldo();				// ojo está castaña 
-		
-	}
-
 	
 	public int getId() {
 		return id;

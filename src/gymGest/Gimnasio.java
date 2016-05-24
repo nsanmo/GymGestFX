@@ -48,7 +48,9 @@ public class Gimnasio{
         public void reservaSquash(){
             pistaDeSquash.crearReserva();
         }
-        public void reservaSquash2(){pistaDeSquash2.crearReserva();}
+        public void reservaSquash2(){
+        	pistaDeSquash2.crearReserva();
+        }
 
 }
 

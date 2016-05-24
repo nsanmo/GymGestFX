@@ -7,12 +7,12 @@ package presentacion.control;
 	import java.util.ResourceBundle;
 	
 	import gymGest.Cliente;
-	import gymGest.ClienteTotal;
 	import gymGest.GymGest;
 	import javafx.fxml.FXML;
 	import javafx.scene.control.Alert;
 	import javafx.scene.control.Alert.AlertType;
 	import javafx.scene.control.Button;
+	import javafx.scene.control.ComboBox;
 	import javafx.scene.control.TextField;
 	import javafx.scene.control.DatePicker;
 	import javafx.stage.Modality;
@@ -22,7 +22,8 @@ package presentacion.control;
 	
 	public class CrearClienteUIControlador extends DialogUIController {
 	
-	
+	enum gamaPalas {noPala, ninyo, baja, media, alta};
+		
 	@FXML
 	private TextField dni;
 	
@@ -36,7 +37,7 @@ package presentacion.control;
 	private TextField telefono;
 	
 	@FXML
-	private TextField gama;
+	private ComboBox gama;
 	
 	@FXML
 	private TextField material;
@@ -47,7 +48,9 @@ package presentacion.control;
 	@FXML
 	private Button cancel;
 	
-	//private Cliente newCliente;
+	public void fillboxes(){
+		gama.getItems().setAll(gamaPalas.values());
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -57,6 +60,8 @@ package presentacion.control;
 		dialog = new Stage(StageStyle.DECORATED);
 		dialog.initModality(Modality.WINDOW_MODAL);
 		dialog.setTitle("Crear Cliente");
+		
+		fillboxes();
 	    
 		cancel.setOnAction(event -> dialog.close());
 		accept.setOnAction(event -> {
@@ -84,11 +89,10 @@ package presentacion.control;
 			
 			}else{
 					
-					try{			// Dni correcto
-								//newCliente = new ClienteTotal(dni.getText(), nombre.getText(),direccion.getText(),telefono.getText(),gama.getText(),
-								//		Boolean.getBoolean(material.getText()));
-	      
-						GymGest.crearCliente(dni.getText(), nombre.getText(),direccion.getText(),telefono.getText(),gama.getText(),Boolean.getBoolean(material.getText()));
+					try{			
+						 
+						
+						GymGest.crearCliente(dni.getText(), nombre.getText(), direccion.getText(), telefono.getText(), (gama.getValue()).toString());
 			     
 		            	dialog.close();
 		            	Alert alert = new Alert(AlertType.INFORMATION);

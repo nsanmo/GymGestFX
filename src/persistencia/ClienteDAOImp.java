@@ -30,7 +30,7 @@ public class ClienteDAOImp implements IClienteDAO{
     public void crearCliente(ClienteDTO cliente) throws DAOException{
         try{
         	
-        	String ins = "INSERT INTO PUBLIC.CLIENTE VALUES ('"+cliente.getDni()+"', '"+cliente.getNombre()+"', '"+cliente.getDireccion()+"', '"+cliente.getTelefono()+"',"+cliente.isMaterial()+","+ 1+");";
+        	String ins = "INSERT INTO PUBLIC.CLIENTE VALUES ('"+cliente.getDni()+"', '"+cliente.getNombre()+"', '"+cliente.getDireccion()+"', '"+cliente.getTelefono()+"',"+cliente.getPalaPadel()+")";
         
             connManager.connect();
             connManager.updateDB(ins);
@@ -56,8 +56,7 @@ public class ClienteDAOImp implements IClienteDAO{
 							rs.getString("NOMBRE"),
 							rs.getString("DIRECCION"),
 							rs.getString("TELEFONO"),
-							null,
-							rs.getBoolean("MATERIAL"));
+							rs.getInt("PALAPADELID"));
 
 					listaClienteDTO.add(clienteDTO);
 				}

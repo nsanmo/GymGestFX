@@ -5,13 +5,13 @@ import interfaces.palaPadel;
 
 public class Tienda {
 
-	factoryProducer fp;
+	//factoryProducer fp;
 	Cliente cli;
 	palaPadel pa;
 	
 	public palaPadel alquilarPalaPadel(Cliente cli, String gama){
-		fp = new factoryProducer();
-		pa = fp.getFactory(gama).crearPala();
+		//fp = new factoryProducer();
+		pa = factoryProducer.getFactory(gama).crearPala();
 		return pa;
 	}
 	

@@ -5,7 +5,7 @@ import interfaces.palaPadel;
 public class PalaNinyo implements palaPadel{
 	
 	private int codigo;
-
+	
 	public int getCodigo(){
 		if (codigo == 0) codigo = generarCodigo();
 		return codigo;		

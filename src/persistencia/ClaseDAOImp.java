@@ -3,6 +3,7 @@ package persistencia;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
@@ -32,14 +33,19 @@ public class ClaseDAOImp implements IClaseDAO {
     public void crearClase(ClaseDTO clase) throws DAOException{
     	
     	 try{
-         	
-         	String ins = "INSERT INTO PUBLIC.CLASE VALUES ('"
-         	+clase.getId()+"', '"
+    		//String ld = clase.getHora().toString(); 
+         	//Time hora = Time.valueOf(ld);
+    		String lt = clase.getHora().toString();
+    		//Time hora = Time.valueOf(lt);
+    		 
+    		 
+         	String ins = "INSERT INTO PUBLIC.CLASE VALUES ("
+         	+clase.getId()+", '"
          	+clase.getDw1().toString()+"', '"
          	+clase.getDw2().toString()+"', '"
          	+clase.gettC().toString()+"', '"
-         	+Date.valueOf((clase.getHora().toString()))+"', '"
-         	+clase.getDuracion()+"', '"
+         	+"10:00:00"+"', " // ARREGLAR
+         	+clase.getDuracion()+", "
          	+clase.getMonitor()+");";
          
              connManager.connect();

@@ -16,6 +16,7 @@ import persistencia.DAL;
 import persistencia_dto.ClaseDTO;
 import persistencia_dto.ClienteDTO;
 import persistencia_dto.MonitorDTO;
+import persistencia_dto.PalaDTO;
 
 public class GymGest {
 	private List<Cliente> clientes;
@@ -23,6 +24,7 @@ public class GymGest {
 	private List<Clase> clases;
 	private List<Asistencia> asistencia;
 	private static List<Reserva> reservas;
+	private static List<palaPadel> palas;
 	private static Gimnasio gim;
 	private static DAL dal;
 
@@ -38,6 +40,7 @@ public class GymGest {
 		this.clases = new ArrayList<Clase>();
 		this.asistencia = new ArrayList<Asistencia>();
 		this.reservas = new ArrayList<Reserva>();
+		this.palas = new ArrayList<palaPadel>();
 		this.gim = new Gimnasio();
 		dal = DAL.getDal();
 		systemLoad();
@@ -56,65 +59,43 @@ public class GymGest {
 	
 	// Control class code
     private void systemLoad(){
+    	loadPalas();
     	loadMonitores();
     	loadClientes();
     	loadClases();
-    	
     }
-    
-	
-    
-    
-    
-    
-    
+
     //List clientes
 
     private void loadClientes(){
-		List<ClienteDTO> listaClienteDTO = dal.getClientes();
+		List<ClienteDTO> listaClienteDTO = dal.getClientes(); 
 		Cliente cliente;
+		String gama;
 		for(ClienteDTO cli: listaClienteDTO){
-			cliente = new ClienteTotal(cli.getDni(), cli.getNombre(), cli.getDireccion(), cli.getTelefono(), cli.getGama(), cli.isMaterial());
+			if(cli.getPalaPadel() < 1000) gama = "ninyo";
+			else if (cli.getPalaPadel() > 1000 && cli.getPalaPadel() < 2000) gama = "baja";
+			else if (cli.getPalaPadel() > 2000 && cli.getPalaPadel() < 3000) gama = "media";
+			else if (cli.getPalaPadel() > 3000) gama = "baja";
+			else gama = null;
+			
+			cliente = new Cliente(cli.getDni(), cli.getNombre(), cli.getDireccion(), cli.getTelefono(), gama);
 			addCliente(cliente);
+		
 		}
 	}
-	
-    //	mejorar muuuuuucho esto
-    //	mejorar muuuuuucho esto
-    //	mejorar muuuuuucho esto
-    //	mejorar muuuuuucho esto
-    //
-	// Refactoring: crear constructor en ClienteDTO donde se le pase Cliente
     
-	public void crearCliente(String dni, String nombre, String direccion, String telefono, String gama,
-							 boolean material){
+	public void crearCliente(String dni, String nombre, String direccion, String telefono, String gama){
 		
-		Cliente cli = new ClienteTotal(dni, nombre, direccion, telefono, gama, material);
-		
-//		//int miembros = 1;
-//		int mañanas = true;
-//				
-//		if(miembros == 1 && mañanas){
-//			cli = new ClienteMañanas(dni, nombre, direccion, telefono, gama, material);
-//		} else if (miembros == 1 && !mañanas){
-//			cli = new ClienteTotal(dni, nombre, direccion, telefono, gama, material);
-//		} else {cli = new ClienteFamilia(dni, nombre, direccion, telefono, gama, material);}
-
-		ClienteDTO clienteDTO = new ClienteDTO(dni, nombre, direccion, telefono, gama, material);
+		Cliente cli = new Cliente(dni, nombre, direccion, telefono, gama);
+		int numPal = cli.getPa().getCodigo(); 	// Refactoring
+		ClienteDTO clienteDTO = new ClienteDTO(dni, nombre, direccion, telefono, numPal);
+		PalaDTO palaDTO = new PalaDTO(numPal);
+		dal.crearPala(palaDTO);
 		dal.crearCliente(clienteDTO);
 		addCliente(cli);
 		
 	}	
 
-	public void mostrarClientes(){
-		for(Cliente cli: clientes){
-			System.out.println("Nombre: "+cli.nombre+" Dirección"+cli.direccion+"  pala:"+cli.getPa() +"\n");
-		}
-	}
-	
-	
-    
-    
 	public boolean addCliente(Cliente cliente){
 		return clientes.add(cliente);
 	}
@@ -168,12 +149,13 @@ public class GymGest {
 		return monitores.add(monitor);
 	}
 	public boolean removeMonitor(Monitor monitor) {return monitores.remove(monitor);}
-	public List<Monitor> getEmpleados() {
+	public List<Monitor> getMonitores() {
 		return monitores;
 	}
 	public void setEmpleados(List<Empleado> empleados) {
 		this.monitores = monitores;
 	}
+	
 	public Monitor getMonitor(int id) {
 		for (Monitor monitor : monitores) {
 			if (monitor.getId()==id) {
@@ -199,15 +181,15 @@ public class GymGest {
 		List<ClaseDTO> listaClaseDTO = dal.getClases();
 		Clase clase;
 		for(ClaseDTO cla: listaClaseDTO){
-			clase = new Clase(cla.getDw1(), cla.getDw2(), cla.gettC(), cla.getHora(), cla.getDuracion(), (Monitor)null);
+			clase = new Clase(cla.getId(), cla.getDw1(), cla.getDw2(), cla.gettC(), cla.getHora(), cla.getDuracion(), (Monitor)null);
 			addClase(clase);
 		}
 		
 	}
 	
-	public void crearClase(int id, DayOfWeek dw1, DayOfWeek dw2, tipoClase tC, LocalTime hora, int duracion, int monitor){
-			Clase clas = new Clase(dw1, dw2, tC, hora, duracion, (Monitor)(Object)monitor); // GUARRADA
-			ClaseDTO cla = new ClaseDTO(id, clas);
+	public void crearClase(int id, DayOfWeek dw1, DayOfWeek dw2, tipoClase tC, LocalTime hora, int duracion, Monitor monitor){
+			Clase clas = new Clase(id, dw1, dw2, tC, hora, duracion, monitor); 
+			ClaseDTO cla = new ClaseDTO(id, dw1, dw2, tC, hora, duracion, monitor.getId());
 			
 			dal.crearClase(cla);
 			addClase(clas);
@@ -227,9 +209,9 @@ public class GymGest {
 	
 	public List<Clase> getClases(){ return clases; }
 	
-	public Clase getClase (DayOfWeek dw, LocalTime lt ){
+	public Clase getClase (int id){
 		for (Clase clase : this.clases) {
-			if (clase.getDw1().equals(dw) && clase.getHora().equals(lt)){
+			if (clase.getId() == id){
 				return clase;
 			}
 		}
@@ -299,17 +281,6 @@ public class GymGest {
 	}
 
 
-	
-	
-	public void palaParaTodos(){
-		for(Cliente cli: clientes){
-			{cli.alquilarPala("media");}
-			
-		}
-		this.mostrarClientes();
-	}
-
-
 	public void apuntarclase(Clase cla, Cliente cli){
 		cla.addCliente(cli);
 		System.out.println("Quedan " + cla.getPlazasLibres() + " plazas libres ");
@@ -324,16 +295,27 @@ public class GymGest {
 
 	}
 
-
-
-
-
+	// Palas
 	
+	public void loadPalas(){
+		List<PalaDTO> listaPalaDTO = dal.getPalas();
+		palaPadel pala;
+		int cod;
+		for(PalaDTO pa: listaPalaDTO){
+			cod = pa.getCodigo();
+			if(cod < 1000) {pala = new PalaNinyo(); pala.setCodigo(cod);}
+			else if (cod > 1000 && cod < 2000){pala = new PalaGamaBaja(); pala.setCodigo(cod);}
+			else if (cod > 2000 && cod < 3000){ pala = new PalaGamaMedia();  pala.setCodigo(cod);}
+			else if (cod > 4000){ pala = new PalaGamaAlta();  pala.setCodigo(cod);}
+			else pala = null;
+			palas.add(pala);
+		}
+	}
 	
 	public static void main(String args[]){
 
 		GymGest gg = new GymGest();
-		gg.palaParaTodos();
+		
 
 		
 	}

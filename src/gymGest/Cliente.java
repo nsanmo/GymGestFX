@@ -4,28 +4,25 @@ import interfaces.palaPadel;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Cliente {
+public class Cliente {
 	
 	String dni;
 	String nombre;
 	String direccion;
 	String telefono;
-	String gama;
 	palaPadel pa;
-	boolean material;
 	int cuota;
 	Tienda tienda;
 	public List<Asistencia>  asisCliente = new ArrayList<Asistencia>();
 	public List<Reserva> reservasPorCliente = new ArrayList<Reserva>();
 
-	public Cliente(String dni, String nombre, String direccion, String telefono, String gama, boolean material) {
+	public Cliente(String dni, String nombre, String direccion, String telefono, String gama) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		this.material = material;
-		this.gama=gama;
-		this.cuota = cuotaMensual();
+	//	this.cuota = cuotaMensual();
+		this.pa = alquilarPala(gama);
 	}
 
 	public List<Asistencia> getAsisCliente() {
@@ -107,12 +104,12 @@ public abstract class Cliente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public String getGama() {
-		return gama;
-	}
-	public void setGama(String gama) {
-		this.gama = gama;
-	}
+//	public String getGama() {
+//		return gama;
+//	}
+//	public void setGama(String gama) {
+//		this.gama = gama;
+//	}
 	public palaPadel getPa() {
 		return pa;
 	}
@@ -120,28 +117,20 @@ public abstract class Cliente {
 		this.pa = pa;
 	}
 
-	public boolean isMaterial() {
-		return material;
-	}
-
-	public void setMaterial(boolean material) {
-		this.material = material;
-	}
-	// Implementacion del Patron Plantilla
-
-	public final int cuotaMensual(){
-		int cuota = 0;
-		if(isMaterial()){return fijo()+alquilerMaterial();}
-		return fijo();
-	}
-
-	abstract int fijo();
-	abstract int alquilerMaterial();
+//	public final int cuotaMensual(){
+//		int cuota = 0;
+////		if(isMaterial()){return fijo()+alquilerMaterial();}
+//		return fijo();
+//	}
+//
+//	abstract int fijo();
+//	abstract int alquilerMaterial();
 	
-	public void alquilarPala(String gama){
+	public palaPadel alquilarPala(String gama){
 		tienda = new Tienda();
-		palaPadel pa = tienda.alquilarPalaPadel(this, gama); 
-		this.setPa(pa);
+		//palaPadel pa = tienda.alquilarPalaPadel(this, gama); 
+		//this.setPa(pa);
+		return tienda.alquilarPalaPadel(this, gama); 
 	}
 
 }

@@ -11,6 +11,7 @@ public class Clase {
 
 	public enum tipoClase {PADEL, TENIS, NATACIÓN}
 
+	int id;
 	private tipoClase tC;
 	private DayOfWeek dw1, dw2;
 	private LocalTime hora;
@@ -21,8 +22,9 @@ public class Clase {
 
 	private List<Cliente> listaClienteActividad = new ArrayList<Cliente>();
 
-	public Clase(DayOfWeek dw1, DayOfWeek dw2, tipoClase tC, LocalTime hora, int duracion, Monitor monitor) {
+	public Clase(int id, DayOfWeek dw1, DayOfWeek dw2, tipoClase tC, LocalTime hora, int duracion, Monitor monitor) {
 
+		this.id = id;
 		this.tC = tC;
 		this.dw1 = dw1;
 		this.dw2 = dw2;
@@ -30,6 +32,16 @@ public class Clase {
 		this.duracion = duracion;
 		this.monitor = monitor;
 
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public tipoClase gettC() {

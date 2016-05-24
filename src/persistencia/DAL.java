@@ -6,6 +6,7 @@ import excepciones.DAOException;
 import persistencia_dto.ClaseDTO;
 import persistencia_dto.ClienteDTO;
 import persistencia_dto.MonitorDTO;
+import persistencia_dto.PalaDTO;
 
 /**
  * Created by ignaciosantonjamolina on 13/5/16.
@@ -15,6 +16,7 @@ public final class DAL {
     private IClienteDAO cliDAO;
     private IClaseDAO claDAO;
     private IMonitorDAO moDAO;
+    private IPalaDAO paDAO;
 
     private static DAL INSTANCE = new DAL();
 
@@ -23,6 +25,7 @@ public final class DAL {
             this.cliDAO = new ClienteDAOImp();
             this.claDAO = new ClaseDAOImp();
             this.moDAO = new MonitorDAOImp();
+            this.paDAO = new PalaDAOImp();
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -72,6 +75,20 @@ public final class DAL {
 	public List<MonitorDTO> getMonitores(){
 		try{
     		return moDAO.getMonitores();
+    	}catch (DAOException e){
+    		return null;
+    	}
+	}
+	public boolean crearPala(PalaDTO pala){
+    	try{
+            paDAO.crearPala(pala);
+            return true;
+        }catch(DAOException e){ return false;}
+	}
+
+	public List<PalaDTO> getPalas(){
+		try{
+    		return paDAO.getPalas();
     	}catch (DAOException e){
     		return null;
     	}

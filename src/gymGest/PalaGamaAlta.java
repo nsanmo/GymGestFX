@@ -26,5 +26,4 @@ public class PalaGamaAlta implements palaPadel{
 		System.out.println("El código de la pala gama alta es " + getCodigo());
 		
 	}
-
 }
