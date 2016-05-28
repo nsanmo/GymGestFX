@@ -2,6 +2,8 @@ package gymGest;
 
 import interfaces.pistaDeporteRaqueta;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +12,6 @@ import java.util.List;
  */
 
 public class Gimnasio{
-
-    //Anterior public class pistaDeporteRaquetaMaker {
-
-        // A modo de systemload
-        // No se deberían crear pistas fuera de esta clase
 
         private pistaDeporteRaqueta pistaDeTenis;
         private pistaDeporteRaqueta pistaDePadel;
@@ -33,23 +30,23 @@ public class Gimnasio{
             pistaDeSquash2 = new PistaSquash(2, true);
         }
 
-        public void reservaTenis(){
-            pistaDeTenis.crearReserva();
+        public void reservaTenis(LocalDate dia, LocalTime hora, Cliente cli){
+            pistaDeTenis.crearReserva("pistaTenis_1", dia, hora, cli );
         }
-        public void reservaTenis2(){
-        pistaDeTenis2.crearReserva();
+        public void reservaTenis2(LocalDate dia, LocalTime hora, Cliente cli){
+        pistaDeTenis2.crearReserva("pistaTenis_2", dia, hora, cli);
     }
-        public void reservaPadel(){
-            pistaDePadel.crearReserva();
+        public void reservaPadel(LocalDate dia, LocalTime hora, Cliente cli){
+            pistaDePadel.crearReserva("pistaPadel_1", dia, hora, cli);
         }
-        public void reservaPadel2(){
-        pistaDePadel2.crearReserva();
+        public void reservaPadel2(LocalDate dia, LocalTime hora, Cliente cli){
+        pistaDePadel2.crearReserva("pistaPadel_2", dia, hora, cli);
     }
-        public void reservaSquash(){
-            pistaDeSquash.crearReserva();
+        public void reservaSquash(LocalDate dia, LocalTime hora, Cliente cli){
+           pistaDeSquash.crearReserva("pistaSquash_1", dia, hora, cli);
         }
-        public void reservaSquash2(){
-        	pistaDeSquash2.crearReserva();
+        public void reservaSquash2(LocalDate dia, LocalTime hora, Cliente cli){
+        	pistaDeSquash2.crearReserva("pistaSquash_2", dia, hora, cli);
         }
 
 }

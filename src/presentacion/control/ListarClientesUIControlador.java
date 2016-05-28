@@ -42,14 +42,14 @@ private TableView<Cliente> table1;
 private TableView<Clase> table2;
 
 @FXML
-private TableColumn<Cliente,String> column1;
+private TableColumn <Cliente,String> column1;
 
 @FXML
-private TableColumn<Cliente,String> column2;
+private TableColumn <Cliente,String> column2;
 
-//@FXML
-//private TableColumn<Clase,String> column3;
-//
+@FXML
+private TableColumn <Cliente,Integer> column3;
+
 //@FXML
 //private TableColumn<Clase,String> column4;
 //
@@ -73,9 +73,9 @@ public void initialize(URL location, ResourceBundle resources) {
 	
 	column1.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDni()));
 	column2.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getNombre()));
-	
-//	column3.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getDireccion()));
-//	column4.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getTelefono()));
+	column3.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getPa().getCodigo()));
+
+	//	column4.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getTelefono()));
 //	column5.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getGama()));
 	
 	cancel.setOnAction(event -> dialog.close());

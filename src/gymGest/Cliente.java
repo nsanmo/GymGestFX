@@ -46,37 +46,37 @@ public class Cliente {
 	}
 
 
-	public void addReservaPorCliente(Reserva res){
-		for(Reserva re: GymGest.getReservas()){
-			if(res.getAño() == re.getAño() &&
-					res.getMes() == re.getMes() &&
-						res.getDia() == re.getDia() &&
-							res.getHora() == re.getHora() &&
-								res.getMinutos() == re.getMinutos() &&
-									res.getPista() == re.getPista()){
-										System.out.println("Ocupado");}
-			else{
-				reservasPorCliente.add(res);
-
-				switch (res.getPista()) {
-					case "tenis1":
-						GymGest.getGim().reservaTenis();
-					case "tenis2":
-						GymGest.getGim().reservaTenis2();
-					case "padel1":
-						GymGest.getGim().reservaPadel();
-					case "padel2":
-						GymGest.getGim().reservaPadel2();
-					case "squash1":
-						GymGest.getGim().reservaSquash();
-					case "squash2":
-						GymGest.getGim().reservaSquash2();
-
-				}
-			}
-		}
-
-	}
+//	public void addReservaPorCliente(Reserva res){
+//		for(Reserva re: GymGest.getReservas()){
+//			if(res.getAño() == re.getAño() &&
+//					res.getMes() == re.getMes() &&
+//						res.getDia() == re.getDia() &&
+//							res.getHora() == re.getHora() &&
+//								res.getMinutos() == re.getMinutos() &&
+//									res.getPista() == re.getPista()){
+//										System.out.println("Ocupado");}
+//			else{
+//				reservasPorCliente.add(res);
+//
+//				switch (res.getPista()) {
+//					case "tenis1":
+//						GymGest.getGim().reservaTenis();
+//					case "tenis2":
+//						GymGest.getGim().reservaTenis2();
+//					case "padel1":
+//						GymGest.getGim().reservaPadel();
+//					case "padel2":
+//						GymGest.getGim().reservaPadel2();
+//					case "squash1":
+//						GymGest.getGim().reservaSquash();
+//					case "squash2":
+//						GymGest.getGim().reservaSquash2();
+//
+//				}
+//			}
+//		}
+//
+//	}
 
 
 

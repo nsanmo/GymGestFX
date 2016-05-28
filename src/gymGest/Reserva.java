@@ -1,5 +1,7 @@
 package gymGest;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,21 +13,29 @@ public class Reserva {
 
     int año;
     Month mes;
-    int dia;
-    int hora;
+    LocalDate dia;
+    LocalTime hora;
     int minutos;
     Cliente cli;
     String pista;
 
-    public Reserva(int año, Month mes, int dia, int hora, int minutos, String pista, Cliente cli) {
-        this.año = año;
-        this.mes = mes;
-        this.dia = dia;
-        this.hora = hora;
-        this.minutos = minutos;
-        this.pista = pista;
-        this.cli=cli;
-    }
+//    public Reserva(int año, Month mes, int dia, int hora, int minutos, String pista, Cliente cli) {
+//        this.año = año;
+//        this.mes = mes;
+//        this.dia = dia;
+//        this.hora = hora;
+//        this.minutos = minutos;
+//        this.pista = pista;
+//        this.cli=cli;
+//    }
+    
+    public Reserva(String pista, LocalDate dia, LocalTime hora, Cliente cli){
+    	this.pista = pista;
+    	this.dia = dia;
+    	this.hora = hora; 
+    	this.cli=cli;
+    	
+    } 
 
     public int getAño() {
         return año;
@@ -43,19 +53,19 @@ public class Reserva {
         this.mes = mes;
     }
 
-    public int getDia() {
+    public LocalDate getDia() {
         return dia;
     }
 
-    public void setDia(int dia) {
+    public void setDia(LocalDate dia) {
         this.dia = dia;
     }
 
-    public int getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(int hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 

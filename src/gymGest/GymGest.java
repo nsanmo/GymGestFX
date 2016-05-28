@@ -3,6 +3,7 @@ package gymGest;
 
 import java.time.DayOfWeek;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
@@ -23,7 +24,7 @@ public class GymGest {
 	private static List<Monitor> monitores;
 	private List<Clase> clases;
 	private List<Asistencia> asistencia;
-	private static List<Reserva> reservas;
+	public List<Reserva> reservas;
 	private static List<palaPadel> palas;
 	private static Gimnasio gim;
 	private static DAL dal;
@@ -63,6 +64,7 @@ public class GymGest {
     	loadMonitores();
     	loadClientes();
     	loadClases();
+    	loadReservas();
     }
 
     //List clientes
@@ -109,8 +111,9 @@ public class GymGest {
 		this.clientes = clientes;
 	}
 	public Cliente getCliente(String dni) {
+		
 		for (Cliente cliente : this.clientes) {
-			if (cliente.getDni().equals(dni)) {
+			if ((cliente.getDni().trim()).equals(dni.trim())) {
 				return cliente;
 			}
 		}
@@ -263,14 +266,27 @@ public class GymGest {
 	
 	// List Reserva
 
-	public static List<Reserva> getReservas(){
+	public List<Reserva> getReservas(){
 		return reservas;
 	}
 	public void addReserva(Reserva res){
 		reservas.add(res);
 	}
-
-	//
+	
+	public int mostrarReservas(){
+		return reservas.size();
+	}
+	
+	public void reservaPista(String pista, LocalDate dia, LocalTime hora, String dni){
+		switch(pista){
+			case "tenis1": gim.reservaTenis(dia, hora, getCliente(dni)); break;
+			case "tenis2": gim.reservaTenis2(dia, hora, getCliente(dni)); break;
+			case "padel1": gim.reservaPadel(dia, hora, getCliente(dni)); break;
+			case "padel2": gim.reservaPadel2(dia, hora, getCliente(dni)); break;
+			case "squash1": gim.reservaSquash(dia, hora, getCliente(dni)); break;
+			case "squash2": gim.reservaSquash2(dia, hora, getCliente(dni)); break;
+		}
+	}
 
 	public static Gimnasio getGim() {
 		return gim;
@@ -281,6 +297,17 @@ public class GymGest {
 	}
 
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void apuntarclase(Clase cla, Cliente cli){
 		cla.addCliente(cli);
 		System.out.println("Quedan " + cla.getPlazasLibres() + " plazas libres ");
@@ -315,6 +342,7 @@ public class GymGest {
 	public static void main(String args[]){
 
 		GymGest gg = new GymGest();
+		
 		
 
 		

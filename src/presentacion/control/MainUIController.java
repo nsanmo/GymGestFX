@@ -15,7 +15,7 @@ public class MainUIController {
 // private static final String LIST_VEHICLE_BRANCH_OFFICE="../view/listVehicles.fxml";
 // private static final String CREATE_RESERVATION="../view/createReservation.fxml";
 	private static final String LISTAR_CLIENTES="../view/ListarClientes.fxml";
-// private static final String CREATE_CUSTOMER="../view/createCustomerView.fxml";
+	private static final String CREAR_RESERVA="../view/reservaPista.fxml";
 	private static final String CREAR_CLIENTE="../view/crearCliente.fxml";
 	private static final String CREAR_MONITOR="../view/crearMonitor.fxml";
 	private static final String CREAR_CLASE="../view/crearClase.fxml";
@@ -27,6 +27,7 @@ public class MainUIController {
  private CrearClienteUIControlador crearClienteControlador;
  private CrearMonitorUIControlador crearMonitorControlador;
  private CrearClaseUIControlador crearClaseControlador;
+ private CrearReservaPistaUIControlador crearReservaPistaControlador;
 // private CreateReservationUIController createReservationController;
 // private ListVehiclesUIController listVehiclesController;
 // private PickUpReservationUIController pickUpReservation;
@@ -39,6 +40,7 @@ public class MainUIController {
  @FXML private MenuItem menuCrearCliente;
  @FXML private MenuItem menuCrearMonitor;
  @FXML private MenuItem menuCrearClase;
+ @FXML private MenuItem menuCrearReserva;
 
  @FXML
  void exit(ActionEvent event) {
@@ -91,13 +93,13 @@ public class MainUIController {
 
  }
 
-// @FXML
-// void createReservation(ActionEvent event) throws LogicException {
-//	 
-// createReservationController=DialogUIController.initDialog(CREATE_RESERVATION,CreateReservationUIController.class, primaryStage);
-// createReservationController.showAndWait();
-//
-// }
+ @FXML
+ void crearReserva(ActionEvent event) throws LogicException {
+	 
+	 crearReservaPistaControlador=DialogUIController.initDialog(CREAR_RESERVA,CrearReservaPistaUIControlador.class, primaryStage);
+	 crearReservaPistaControlador.showAndWait();
+
+ }
 
  
  public void setPrimaryStage(Stage primaryStage) {
