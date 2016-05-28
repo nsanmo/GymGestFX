@@ -104,6 +104,7 @@ public class GymGest {
 	public boolean borrar_cliente(Cliente client) {
 		return clientes.remove(client);
 	}
+
 	public List<Cliente> getClientes() {
 		return clientes;
 	}
@@ -120,10 +121,7 @@ public class GymGest {
 		return null;
 	}
 	
-	
-	
 
-	
 	//List monitores
 
 	public void loadMonitores(){
@@ -167,17 +165,7 @@ public class GymGest {
 		}
 		return null;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 	//List Clases
 	private void loadClases(){

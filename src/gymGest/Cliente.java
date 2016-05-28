@@ -1,20 +1,25 @@
 package gymGest;
 
+import decoradores.DecoradorNATACION;
+import decoradores.DecoradorPADEL;
+import decoradores.DecoradorTENIS;
+import interfaces.Recibo;
 import interfaces.palaPadel;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
 	
-	String dni;
-	String nombre;
-	String direccion;
-	String telefono;
-	palaPadel pa;
-	int cuota;
-	Tienda tienda;
+	private String dni;
+	private String nombre;
+	private String direccion;
+	private String telefono;
+	private palaPadel pa;
+	private Recibo recibo = new Mensualidad();
+	private Tienda tienda;
 	public List<Asistencia>  asisCliente = new ArrayList<Asistencia>();
 	public List<Reserva> reservasPorCliente = new ArrayList<Reserva>();
+	public List<Clase> clases = new ArrayList<>();
 
 	public Cliente(String dni, String nombre, String direccion, String telefono, String gama) {
 		this.dni = dni;
@@ -45,6 +50,7 @@ public class Cliente {
 		this.reservasPorCliente = reservasPorCliente;
 	}
 
+<<<<<<< HEAD
 
 //	public void addReservaPorCliente(Reserva res){
 //		for(Reserva re: GymGest.getReservas()){
@@ -77,6 +83,40 @@ public class Cliente {
 //		}
 //
 //	}
+=======
+	//Esto no deberia estar en gymgest??
+	public void addReservaPorCliente(Reserva res){
+		for(Reserva re: GymGest.getReservas()){
+			if(res.getAño() == re.getAño() &&
+					res.getMes() == re.getMes() &&
+						res.getDia() == re.getDia() &&
+							res.getHora() == re.getHora() &&
+								res.getMinutos() == re.getMinutos() &&
+									res.getPista() == re.getPista()){
+										System.out.println("Ocupado");}
+			else{
+				reservasPorCliente.add(res);
+
+				switch (res.getPista()) {
+					case "tenis1":
+						GymGest.getGim().reservaTenis();
+					case "tenis2":
+						GymGest.getGim().reservaTenis2();
+					case "padel1":
+						GymGest.getGim().reservaPadel();
+					case "padel2":
+						GymGest.getGim().reservaPadel2();
+					case "squash1":
+						GymGest.getGim().reservaSquash();
+					case "squash2":
+						GymGest.getGim().reservaSquash2();
+
+				}
+			}
+		}
+
+	}
+>>>>>>> origin/master
 
 
 
@@ -133,4 +173,33 @@ public class Cliente {
 		return tienda.alquilarPalaPadel(this, gama); 
 	}
 
+	public double calcularRecibo(){
+		for(Clase c : clases) {
+			switch (c.gettC().name()) {
+				case "PADEL":
+					recibo = new DecoradorPADEL(recibo);
+				case "TENIS":
+					recibo = new DecoradorTENIS(recibo);
+				case "NATACION":
+					recibo = new DecoradorNATACION(recibo);
+			}
+		}
+		return recibo.calcularMensualidad();
+	}
+
+	public Recibo getRecibo() {
+		return recibo;
+	}
+
+	public void anyadirClase(Clase clase){
+		clases.add(clase);
+	}
+
+	public List<Clase> getClases() {
+		return clases;
+	}
+
+	public void setClases(List<Clase> clases) {
+		this.clases = clases;
+	}
 }
