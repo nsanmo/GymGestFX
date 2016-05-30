@@ -19,6 +19,7 @@
                   <MenuItem fx:id="menuCrearCliente" mnemonicParsing="false" onAction="#crearCliente" text="CrearCliente" />
                   <MenuItem fx:id="menuListarClientes" mnemonicParsing="false" onAction="#listarClientes" text="ListarClientes" />
                   <MenuItem fx:id="menuCrearReserva" mnemonicParsing="false" onAction="#crearReserva" text="CrearReserva" />
+                  <MenuItem fx:id="menuListarClases" mnemonicParsing="false" text="Listar Clases" />
             </items>
           </Menu>
           

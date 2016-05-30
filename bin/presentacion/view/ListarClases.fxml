@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentacion.control.ListarClasesUIControlador">
+   <children>
+      <Button fx:id="accept" layoutX="445.0" layoutY="352.0" mnemonicParsing="false" text="Show" />
+      <Button fx:id="cancel" layoutX="511.0" layoutY="352.0" mnemonicParsing="false" text="Close" />
+      <TableView fx:id="table1" layoutX="41.0" layoutY="38.0" prefHeight="228.0" prefWidth="517.0">
+        <columns>
+          <TableColumn fx:id="column1" prefWidth="63.0" text="id" />
+          <TableColumn fx:id="column2" prefWidth="104.0" text="Día " />
+            <TableColumn fx:id="column3" prefWidth="104.0" text="Día" />
+            <TableColumn fx:id="column4" prefWidth="130.0" text="Clase" />
+            <TableColumn fx:id="column5" prefWidth="114.0" text="Monitor" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
