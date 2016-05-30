@@ -35,7 +35,8 @@
 	 }
 	
 	
-	 @FXML
+	 @SuppressWarnings("static-access")
+	@FXML
 	 public void initialize(){
 		 setLogicController(GymGest.getGymGest());
 	 }

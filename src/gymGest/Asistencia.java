@@ -1,9 +1,5 @@
 package gymGest;
 
-
-import java.time.LocalDateTime;
-import java.util.List;
-
 public class Asistencia {
 
     Entrada entrada;
@@ -21,20 +17,20 @@ public class Asistencia {
         return entrada;
     }
 
-    public void setEntrada(LocalDateTime e) {
-
-        this.entrada = entrada;
-    }
+//    public void setEntrada(LocalDateTime e) {
+//
+//        this.entrada = e;
+//    }
 
     public Salida getSalida() {
 
         return salida;
     }
 
-    public void setSalida(LocalDateTime s) {
-
-        this.salida = salida;
-    }
+//    public void setSalida(LocalDateTime s) {
+//
+//        this.salida = salida;
+//    }
 
     public Cliente getCli() {
         return cli;

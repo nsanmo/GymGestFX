@@ -1,12 +1,8 @@
 package presentacion.control;
 
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
-
-import gymGest.Clase;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -17,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import presentacion.control.CrearClienteUIControlador.gamaPalas;
 
 public class CrearReservaPistaUIControlador extends DialogUIController{
 
@@ -30,6 +25,7 @@ public class CrearReservaPistaUIControlador extends DialogUIController{
 	@FXML 
 	private DatePicker dia;
 	
+	@SuppressWarnings("rawtypes")
 	@FXML
 	private ComboBox pista; 
 	
@@ -41,10 +37,13 @@ public class CrearReservaPistaUIControlador extends DialogUIController{
 	
 	enum pistas {tenis1, tenis2, padel1, padel2, squash1, squash2 };
 	
+	@SuppressWarnings("unchecked")
 	private void fillboxes(){
+		
 		this.pista.getItems().setAll(pistas.values());
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		

@@ -41,6 +41,7 @@ public class CrearMonitorUIControlador extends DialogUIController {
 	
 	//private Monitor newMonitor;
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		

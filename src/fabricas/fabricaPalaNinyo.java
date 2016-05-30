@@ -1,7 +1,5 @@
 package fabricas;
 
-
-import gymGest.PalaGamaAlta;
 import gymGest.PalaNinyo;
 import interfaces.fabricaAbstractaPalaDePadel;
 import interfaces.palaPadel;

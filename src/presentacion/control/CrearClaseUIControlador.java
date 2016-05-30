@@ -35,9 +35,11 @@
 	@FXML
 	private TextField duracion;
 	
+	@SuppressWarnings("rawtypes")
 	@FXML
 	private ComboBox tipoClase; 
 	
+	@SuppressWarnings("rawtypes")
 	@FXML
 	private ComboBox monitor; 
 	
@@ -47,14 +49,17 @@
 	@FXML
 	private Button cancel;
 	
+	@SuppressWarnings("unchecked")
 	public void fillboxes(){
 		for(Monitor moni: GymGest.getMonitores()){
 			monitor.getItems().add(moni.getId()); 	// MEJORAR ESTO
 		}
+		
 		tipoClase.getItems().setAll(Clase.tipoClase.values());
 	}
 	
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		

@@ -9,7 +9,6 @@ public class Empleado {
 	public Empleado(String dni, String nombre) {
 		this.dni = dni;
 		this.nombre = nombre;
-		this.sueldo = sueldo;
 	}
 	
 	public String getDni() {

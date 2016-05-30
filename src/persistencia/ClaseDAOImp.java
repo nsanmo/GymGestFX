@@ -1,19 +1,12 @@
 package persistencia;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.time.DayOfWeek;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import excepciones.DAOException;
-import gymGest.Monitor;
 import persistencia_dto.ClaseDTO;
-import persistencia_dto.ClienteDTO;
 import gymGest.Clase.tipoClase;
 
 public class ClaseDAOImp implements IClaseDAO {
@@ -34,7 +27,7 @@ public class ClaseDAOImp implements IClaseDAO {
     	
     	 try{
     		
-    		String lt = clase.getHora().toString();
+    		//String lt = clase.getHora().toString();
     		 
          	String ins = "INSERT INTO PUBLIC.CLASE VALUES ("
          	+clase.getId()+", '"

@@ -1,20 +1,15 @@
 package presentacion.control;
 	
-	import java.awt.Label;
+
 	import java.net.URL;
-	import java.time.LocalDateTime;
-	import java.time.LocalTime;
 	import java.util.ResourceBundle;
-	
-	import gymGest.Cliente;
-	import gymGest.GymGest;
 	import javafx.fxml.FXML;
 	import javafx.scene.control.Alert;
 	import javafx.scene.control.Alert.AlertType;
 	import javafx.scene.control.Button;
 	import javafx.scene.control.ComboBox;
 	import javafx.scene.control.TextField;
-	import javafx.scene.control.DatePicker;
+
 	import javafx.stage.Modality;
 	import javafx.stage.Stage;
 	import javafx.stage.StageStyle;
@@ -36,6 +31,7 @@ package presentacion.control;
 	@FXML
 	private TextField telefono;
 	
+	@SuppressWarnings("rawtypes")
 	@FXML
 	private ComboBox gama;
 	
@@ -48,10 +44,13 @@ package presentacion.control;
 	@FXML
 	private Button cancel;
 	
+	@SuppressWarnings("unchecked")
 	public void fillboxes(){
+		
 		gama.getItems().setAll(gamaPalas.values());
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		

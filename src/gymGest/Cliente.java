@@ -15,6 +15,7 @@ public class Cliente {
 	private String direccion;
 	private String telefono;
 	private palaPadel pala;
+	@SuppressWarnings("unused")
 	private Recibo recibo = new Mensualidad();
 	private Tienda tienda;
 	public List<Asistencia>  asisCliente = new ArrayList<Asistencia>();

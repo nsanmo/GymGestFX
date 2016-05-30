@@ -2,13 +2,8 @@ package persistencia_dto;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-
 import gymGest.Clase;
 import gymGest.Clase.tipoClase;
-import gymGest.Cliente;
-import gymGest.Monitor;
 
 public class ClaseDTO{
 	
