@@ -6,8 +6,7 @@ public class Piscina {
 	
 	private int longitud; 
 
-	public Piscina(String nombre, List<Monitor> monitoresInstalacion, double precioAlquiler, int longitud){
-		//super(nombre, monitoresInstalacion, precioAlquiler);
+	public Piscina(int longitud){
 		this.longitud=longitud;
 	}
 

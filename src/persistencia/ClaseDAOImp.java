@@ -33,18 +33,15 @@ public class ClaseDAOImp implements IClaseDAO {
     public void crearClase(ClaseDTO clase) throws DAOException{
     	
     	 try{
-    		//String ld = clase.getHora().toString(); 
-         	//Time hora = Time.valueOf(ld);
+    		
     		String lt = clase.getHora().toString();
-    		//Time hora = Time.valueOf(lt);
-    		 
     		 
          	String ins = "INSERT INTO PUBLIC.CLASE VALUES ("
          	+clase.getId()+", '"
          	+clase.getDw1().toString()+"', '"
          	+clase.getDw2().toString()+"', '"
          	+clase.gettC().toString()+"', '"
-         	+"10:00:00"+"', " // ARREGLAR
+         	+"10:00:00"+"', " 
          	+clase.getDuracion()+", "
          	+clase.getMonitor()+");";
          
@@ -77,9 +74,7 @@ public class ClaseDAOImp implements IClaseDAO {
 
 					ClaseDTO claseDTO = new ClaseDTO(
 							rs.getInt("ID"), 
-						//	DayOfWeek.valueOf(rs.getString("DIASEMANA1")),
 							d1,
-						//	DayOfWeek.valueOf(rs.getString("DIASEMANA2")),
 							d2,
 							tipoClase.valueOf(rs.getString("ACTIVIDAD").trim()),
 							(rs.getTime("HORA")).toLocalTime(),

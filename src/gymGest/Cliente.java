@@ -1,8 +1,8 @@
 package gymGest;
 
-import decoradores.DecoradorNATACION;
-import decoradores.DecoradorPADEL;
-import decoradores.DecoradorTENIS;
+//import decoradores.DecoradorNATACION;
+//import decoradores.DecoradorPadel;
+//import decoradores.DecoradorTENIS;
 import interfaces.Recibo;
 import interfaces.palaPadel;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class Cliente {
 	private String nombre;
 	private String direccion;
 	private String telefono;
-	private palaPadel pa;
+	private palaPadel pala;
 	private Recibo recibo = new Mensualidad();
 	private Tienda tienda;
 	public List<Asistencia>  asisCliente = new ArrayList<Asistencia>();
@@ -27,7 +27,7 @@ public class Cliente {
 		this.direccion = direccion;
 		this.telefono = telefono;
 	//	this.cuota = cuotaMensual();
-		this.pa = alquilarPala(gama);
+		this.pala = alquilarPala(gama);
 	}
 
 	public List<Asistencia> getAsisCliente() {
@@ -49,76 +49,6 @@ public class Cliente {
 	public void setReservasPorCliente(List<Reserva> reservasPorCliente) {
 		this.reservasPorCliente = reservasPorCliente;
 	}
-
-<<<<<<< HEAD
-
-//	public void addReservaPorCliente(Reserva res){
-//		for(Reserva re: GymGest.getReservas()){
-//			if(res.getAño() == re.getAño() &&
-//					res.getMes() == re.getMes() &&
-//						res.getDia() == re.getDia() &&
-//							res.getHora() == re.getHora() &&
-//								res.getMinutos() == re.getMinutos() &&
-//									res.getPista() == re.getPista()){
-//										System.out.println("Ocupado");}
-//			else{
-//				reservasPorCliente.add(res);
-//
-//				switch (res.getPista()) {
-//					case "tenis1":
-//						GymGest.getGim().reservaTenis();
-//					case "tenis2":
-//						GymGest.getGim().reservaTenis2();
-//					case "padel1":
-//						GymGest.getGim().reservaPadel();
-//					case "padel2":
-//						GymGest.getGim().reservaPadel2();
-//					case "squash1":
-//						GymGest.getGim().reservaSquash();
-//					case "squash2":
-//						GymGest.getGim().reservaSquash2();
-//
-//				}
-//			}
-//		}
-//
-//	}
-=======
-	//Esto no deberia estar en gymgest??
-	public void addReservaPorCliente(Reserva res){
-		for(Reserva re: GymGest.getReservas()){
-			if(res.getAño() == re.getAño() &&
-					res.getMes() == re.getMes() &&
-						res.getDia() == re.getDia() &&
-							res.getHora() == re.getHora() &&
-								res.getMinutos() == re.getMinutos() &&
-									res.getPista() == re.getPista()){
-										System.out.println("Ocupado");}
-			else{
-				reservasPorCliente.add(res);
-
-				switch (res.getPista()) {
-					case "tenis1":
-						GymGest.getGim().reservaTenis();
-					case "tenis2":
-						GymGest.getGim().reservaTenis2();
-					case "padel1":
-						GymGest.getGim().reservaPadel();
-					case "padel2":
-						GymGest.getGim().reservaPadel2();
-					case "squash1":
-						GymGest.getGim().reservaSquash();
-					case "squash2":
-						GymGest.getGim().reservaSquash2();
-
-				}
-			}
-		}
-
-	}
->>>>>>> origin/master
-
-
 
 	public String getDni() {
 		return dni;
@@ -144,27 +74,13 @@ public class Cliente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-//	public String getGama() {
-//		return gama;
-//	}
-//	public void setGama(String gama) {
-//		this.gama = gama;
-//	}
-	public palaPadel getPa() {
-		return pa;
-	}
-	public void setPa(palaPadel pa) {
-		this.pa = pa;
-	}
 
-//	public final int cuotaMensual(){
-//		int cuota = 0;
-////		if(isMaterial()){return fijo()+alquilerMaterial();}
-//		return fijo();
-//	}
-//
-//	abstract int fijo();
-//	abstract int alquilerMaterial();
+	public palaPadel getPa() {
+		return pala;
+	}
+	public void setPa(palaPadel pala) {
+		this.pala = pala;
+	}
 	
 	public palaPadel alquilarPala(String gama){
 		tienda = new Tienda();
@@ -173,23 +89,23 @@ public class Cliente {
 		return tienda.alquilarPalaPadel(this, gama); 
 	}
 
-	public double calcularRecibo(){
-		for(Clase c : clases) {
-			switch (c.gettC().name()) {
-				case "PADEL":
-					recibo = new DecoradorPADEL(recibo);
-				case "TENIS":
-					recibo = new DecoradorTENIS(recibo);
-				case "NATACION":
-					recibo = new DecoradorNATACION(recibo);
-			}
-		}
-		return recibo.calcularMensualidad();
-	}
-
-	public Recibo getRecibo() {
-		return recibo;
-	}
+//	public double calcularRecibo(){
+//		for(Clase c : clases) {
+//			switch (c.gettC().name()) {
+//				case "PADEL":
+//					recibo = new DecoradorPadel(recibo);
+//				case "TENIS":
+//					recibo = new DecoradorTENIS(recibo);
+//				case "NATACION":
+//					recibo = new DecoradorNATACION(recibo);
+//			}
+//		}
+//		return recibo.calcularMensualidad();
+//	}
+//
+//	public Recibo getRecibo() {
+//		return recibo;
+//	}
 
 	public void anyadirClase(Clase clase){
 		clases.add(clase);

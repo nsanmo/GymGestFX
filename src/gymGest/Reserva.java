@@ -18,16 +18,6 @@ public class Reserva {
     int minutos;
     Cliente cli;
     String pista;
-
-//    public Reserva(int año, Month mes, int dia, int hora, int minutos, String pista, Cliente cli) {
-//        this.año = año;
-//        this.mes = mes;
-//        this.dia = dia;
-//        this.hora = hora;
-//        this.minutos = minutos;
-//        this.pista = pista;
-//        this.cli=cli;
-//    }
     
     public Reserva(String pista, LocalDate dia, LocalTime hora, Cliente cli){
     	this.pista = pista;

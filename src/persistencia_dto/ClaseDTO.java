@@ -32,6 +32,18 @@ public class ClaseDTO{
 
 	}
 	
+	public ClaseDTO(Clase clase){
+		
+		this.id = clase.getId();
+		this.tC = clase.gettC();
+		this.dw1 = clase.getDw1();
+		this.dw2 = clase.getDw2();
+		this.hora = clase.getHora();
+		this.duracion = clase.getDuracion();
+		this.monitor = clase.getMonitor().getId();
+		
+	}
+	
 	public int getId() {
 		return id;
 	}

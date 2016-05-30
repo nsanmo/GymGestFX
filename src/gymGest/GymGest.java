@@ -28,12 +28,9 @@ public class GymGest {
 	private static List<palaPadel> palas;
 	private static Gimnasio gim;
 	private static DAL dal;
-
+	
 	//singleton
-	private static GymGest INSTANCE = new GymGest();
-	
-	//Para systemload...
-	
+	private static GymGest INSTANCE = new GymGest();	
 
 	public GymGest(){
 		this.clientes = new ArrayList<Cliente>();
@@ -64,14 +61,14 @@ public class GymGest {
     	loadMonitores();
     	loadClientes();
     	loadClases();
-    	loadReservas();
+    	//loadReservas();
     }
 
     //List clientes
 
     private void loadClientes(){
 		List<ClienteDTO> listaClienteDTO = dal.getClientes(); 
-		Cliente cliente;
+	
 		String gama;
 		for(ClienteDTO cli: listaClienteDTO){
 			if(cli.getPalaPadel() < 1000) gama = "ninyo";
@@ -80,11 +77,15 @@ public class GymGest {
 			else if (cli.getPalaPadel() > 3000) gama = "baja";
 			else gama = null;
 			
-			cliente = new Cliente(cli.getDni(), cli.getNombre(), cli.getDireccion(), cli.getTelefono(), gama);
-			addCliente(cliente);
+			anyadirClientesLista(cli.getDni(), cli.getNombre(), cli.getDireccion(), cli.getTelefono(), gama);
 		
 		}
 	}
+    
+    public void anyadirClientesLista(String dni, String nombre, String direccion, String telefono, String gama){
+    	Cliente cliente = new Cliente(dni, nombre, direccion, telefono, gama);
+    	addCliente(cliente);
+    }
     
 	public void crearCliente(String dni, String nombre, String direccion, String telefono, String gama){
 		
@@ -275,6 +276,8 @@ public class GymGest {
 			case "squash2": gim.reservaSquash2(dia, hora, getCliente(dni)); break;
 		}
 	}
+	
+	
 
 	public static Gimnasio getGim() {
 		return gim;
@@ -284,31 +287,12 @@ public class GymGest {
 		GymGest.gim = gim;
 	}
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public void apuntarclase(Clase cla, Cliente cli){
 		cla.addCliente(cli);
 		System.out.println("Quedan " + cla.getPlazasLibres() + " plazas libres ");
 	}
 
-
-
-	public void crearAsistencia(LocalDateTime e, LocalDateTime s, Cliente cli){
-		Entrada en;
-		Salida sa;
-		Asistencia asis = new Asistencia(en = new Entrada(e), sa = new Salida(s), cli);
-
-	}
 
 	// Palas
 	
