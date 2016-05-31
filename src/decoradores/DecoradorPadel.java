@@ -11,6 +11,10 @@ public class DecoradorPADEL extends ComponenteDecorador {
     }
 
     public double calcularMensualidad(){
+<<<<<<< HEAD
         return super.calcularMensualidad()+ 27.2;
+=======
+        return super.calcularMensualidad()+ 27.20;
+>>>>>>> origin/master
     }
 }
