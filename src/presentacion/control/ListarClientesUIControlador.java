@@ -1,7 +1,6 @@
 package presentacion.control;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import gymGest.Clase;
@@ -22,8 +21,11 @@ import javafx.stage.StageStyle;
 public class ListarClientesUIControlador extends DialogUIController {
 
 	
+@SuppressWarnings("unused")
 private int id;
+@SuppressWarnings("unused")
 private Stage primaryStage;
+@SuppressWarnings("unused")
 private static final String LISTAR_CLIENTES="../view/ListarClientes.fxml";	
 	
 
@@ -64,6 +66,7 @@ private Button cancel;
 
 
 
+@SuppressWarnings("static-access")
 @Override
 public void initialize(URL location, ResourceBundle resources) {
 	GymGest=GymGest.getGymGest();
@@ -80,7 +83,7 @@ public void initialize(URL location, ResourceBundle resources) {
 	
 	cancel.setOnAction(event -> dialog.close());
 	accept.setOnAction(event -> {
-		Cliente cli = table1.getSelectionModel().getSelectedItem();
+		//Cliente cli = table1.getSelectionModel().getSelectedItem();
 //		id = bo.getId();
 //		if(vehicleRental.listReservationByBranchOffice(id) == null){
 //			

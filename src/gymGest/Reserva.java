@@ -3,8 +3,6 @@ package gymGest;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by ignaciosantonjamolina on 14/5/16.

@@ -1,9 +1,6 @@
 package persistencia_dto;
 
 
-import gymGest.Cliente;
-import interfaces.palaPadel;
-
 /**
  * Created by ignaciosantonjamolina on 13/5/16.
  */

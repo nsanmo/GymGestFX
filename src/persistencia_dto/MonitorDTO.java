@@ -1,6 +1,5 @@
 package persistencia_dto;
 
-import gymGest.Gimnasio;
 import gymGest.Monitor;
 
 public class MonitorDTO {

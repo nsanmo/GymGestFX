@@ -154,7 +154,7 @@ public class GymGest {
 	public List<Monitor> getMonitores() {
 		return monitores;
 	}
-	public void setEmpleados(List<Empleado> empleados) {
+	public void setEmpleados(List<Monitor> monitores) {
 		this.monitores = monitores;
 	}
 	

@@ -1,7 +1,6 @@
 package persistencia;
 
 import excepciones.DAOException;
-import interfaces.palaPadel;
 import persistencia_dto.ClienteDTO;
 
 import java.sql.ResultSet;

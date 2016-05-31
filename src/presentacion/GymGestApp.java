@@ -15,7 +15,8 @@ public class GymGestApp extends Application {
 
 	 private Stage primaryStage; //
 	 private BorderPane rootLayout;
-	 private MainUIController controller;
+	 @SuppressWarnings("unused")
+	private MainUIController controller;
 
 	 public static void main(String[] args) {
 		 launch(args);
