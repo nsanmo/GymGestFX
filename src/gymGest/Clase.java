@@ -17,8 +17,9 @@ public class Clase {
 	private LocalTime hora;
 	private int duracion;
 	private Monitor monitor;
-	private int plazasLibres=PLAZAS;
 	private static final int PLAZAS = 8;
+	private int plazasLibres=PLAZAS;
+
 
 	private List<Cliente> listaClienteActividad = new ArrayList<Cliente>();
 

@@ -1,8 +1,8 @@
 package gymGest;
 
-//import decoradores.DecoradorNATACION;
-//import decoradores.DecoradorPadel;
-//import decoradores.DecoradorTENIS;
+import decoradores.DecoradorNATACION;
+import decoradores.DecoradorPADEL;
+import decoradores.DecoradorTENIS;
 import interfaces.Recibo;
 import interfaces.palaPadel;
 import java.util.ArrayList;
@@ -21,13 +21,13 @@ public class Cliente {
 	public List<Reserva> reservasPorCliente = new ArrayList<Reserva>();
 	public List<Clase> clases = new ArrayList<>();
 
-	public Cliente(String dni, String nombre, String direccion, String telefono, String gama) {
+	public Cliente(String dni, String nombre, String direccion, String telefono) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
 	//	this.cuota = cuotaMensual();
-		this.pala = alquilarPala(gama);
+		//this.pala = alquilarPala(gama);
 	}
 
 	public List<Asistencia> getAsisCliente() {
@@ -89,26 +89,29 @@ public class Cliente {
 		return tienda.alquilarPalaPadel(this, gama); 
 	}
 
-//	public double calcularRecibo(){
+	public double calcularRecibo(){
 //		for(Clase c : clases) {
-//			switch (c.gettC().name()) {
-//				case "PADEL":
-//					recibo = new DecoradorPadel(recibo);
-//				case "TENIS":
+//			switch (c.gettC()) {
+//				case PADEL:
+//					recibo = new DecoradorPADEL(recibo);
+//				case TENIS:
 //					recibo = new DecoradorTENIS(recibo);
-//				case "NATACION":
+//				case NATACIÓN:
 //					recibo = new DecoradorNATACION(recibo);
 //			}
 //		}
-//		return recibo.calcularMensualidad();
-//	}
-//
-//	public Recibo getRecibo() {
-//		return recibo;
-//	}
+		return recibo.calcularMensualidad();
+	}
+
+	public Recibo getRecibo() {
+		return recibo;
+	}
 
 	public void anyadirClase(Clase clase){
 		clases.add(clase);
+		if(clase.gettC().equals(Clase.tipoClase.PADEL)) recibo = new DecoradorPADEL(recibo);
+		else if(clase.gettC().equals(Clase.tipoClase.TENIS)) recibo = new DecoradorTENIS(recibo);
+		else recibo = new DecoradorNATACION(recibo);
 	}
 
 	public List<Clase> getClases() {

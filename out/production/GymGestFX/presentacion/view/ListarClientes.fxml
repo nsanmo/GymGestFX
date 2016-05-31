@@ -10,16 +10,17 @@
    <children>
       <Button fx:id="accept" layoutX="445.0" layoutY="352.0" mnemonicParsing="false" text="Show" />
       <Button fx:id="cancel" layoutX="511.0" layoutY="352.0" mnemonicParsing="false" text="Close" />
-      <TableView fx:id="table1" layoutX="26.0" layoutY="40.0" prefHeight="200.0" prefWidth="199.0">
+      <TableView fx:id="table1" layoutX="26.0" layoutY="40.0" prefHeight="200.0" prefWidth="306.0">
         <columns>
           <TableColumn fx:id="column1" prefWidth="94.0" text="DNI" />
-          <TableColumn fx:id="column2" prefWidth="105.0" text="Nombre" />
+          <TableColumn fx:id="column2" prefWidth="126.0" text="Nombre" />
+            <TableColumn fx:id="column3" prefWidth="85.0" text="Pala" />
         </columns>
       </TableView>
-      <TableView fx:id="table2" layoutX="310.0" layoutY="41.0" prefHeight="200.0" prefWidth="269.0">
+      <TableView fx:id="table2" layoutX="378.0" layoutY="41.0" prefHeight="200.0" prefWidth="201.0">
         <columns>
-          <TableColumn fx:id="column3" prefWidth="137.0" text="Id" />
-          <TableColumn fx:id="column4" prefWidth="131.0" text="Customer DNI" />
+          <TableColumn fx:id="column4" prefWidth="137.0" text="Id" />
+          <TableColumn fx:id="column5" prefWidth="131.0" text="Customer DNI" />
         </columns>
       </TableView>
    </children>

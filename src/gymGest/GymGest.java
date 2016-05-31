@@ -83,13 +83,13 @@ public class GymGest {
 	}
     
     public void anyadirClientesLista(String dni, String nombre, String direccion, String telefono, String gama){
-    	Cliente cliente = new Cliente(dni, nombre, direccion, telefono, gama);
+    	Cliente cliente = new Cliente(dni, nombre, direccion, telefono);
     	addCliente(cliente);
     }
     
 	public void crearCliente(String dni, String nombre, String direccion, String telefono, String gama){
 		
-		Cliente cli = new Cliente(dni, nombre, direccion, telefono, gama);
+		Cliente cli = new Cliente(dni, nombre, direccion, telefono);
 		int numPal = cli.getPa().getCodigo(); 	// Refactoring
 		ClienteDTO clienteDTO = new ClienteDTO(dni, nombre, direccion, telefono, numPal);
 		PalaDTO palaDTO = new PalaDTO(numPal);
